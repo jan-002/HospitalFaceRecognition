@@ -1,0 +1,65 @@
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" href="styles.css">
+<button type="button" class="btn btn-dark" id="rzp-button1" style = "border-left-width: 50%; margin-left: 45%; margin-top: 13%; position: absolute;">Pay Using RazorPay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<div class="center" background = 'background.jpg' >
+<script>
+
+var options = {
+    "key": 'rzp_test_53eqeZ93WretLG', // Enter the Key ID generated from the Dashboard
+    "name": "Hospital Name",
+    "description": "Payment for Treatment and/or medications",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_JavnWimS9jNk5W" , //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        console.log(
+            {
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_signature: response.razorpay_signature
+            }
+        )
+        // alert(response.razorpay_payment_id);
+        // alert(response.razorpay_order_id);
+        // alert(response.razorpay_signature)
+        alert("PAYMENT SUCCESS")
+    },
+    "prefill": {
+        "name": "Patient Name",
+        "email": "patientemail@hospital.com",
+        "contact": "1234567890"
+    },
+
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert("Payment Failure, Please refresh the page")
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+
+</script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
