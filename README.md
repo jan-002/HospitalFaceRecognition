@@ -15,6 +15,10 @@ To activate the virtual environment, go to  the Scripts folder in the virtual en
 STEP 4:
 Go back to the cloned facial_recognition folder and enter 'python setup.py install' (64 bit of python is must). Once this is done , enter pip install cmake. Once done enter 'python setup.py install' again. This will take a lot of time, but once done, do a pip freeze and check if dlib, face-recognition , etc are installed.
 
+STEP 5:
+If any module is to be imported, go to the virtual environment in the facerecog folder and perform a pip install
+Eg: Pip install streamlit
+
 
 Steps to follow for execution of the web app:
 Step 1
