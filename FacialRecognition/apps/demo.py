@@ -1,9 +1,9 @@
-
+import config
 import js2py
 from django.shortcuts import render
 import razorpay
-RAZORPAY_KEY_ID = 'rzp_test_53eqeZ93WretLG'   
-RAZORPAY_KEY_SECRET = 'L6t6c1qdiAigFBa9HfZKZZLb'
+RAZORPAY_KEY_ID = config.razorpay_key_id
+RAZORPAY_KEY_SECRET = config.razorpay_key_secret
 client = razorpay.Client(auth=(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET))
 
 #checkout
